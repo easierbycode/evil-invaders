@@ -1,0 +1,113 @@
+{
+  "duration": 35,
+  "groups": [
+    "bowsers",
+    "flirtyGirls",
+    "redDevils",
+    "littleDevils"
+  ],
+  "enemies": 
+  [
+    {
+      "time": 1,
+      "x": 0.9,
+      "health": 25,
+      "speedX": -20, 
+      "speedY": 50,
+      "key": "bowser",
+      "scale": 1.5,
+      "type": "bowsers"
+    },
+    {
+      "time": 2,
+      "x": 0.1,
+      "health": 24,
+      "speedX": 20, 
+      "speedY": 50,
+      "key": "flirtyGirl",
+      "scale": 3,
+      "type": "flirtyGirls"
+    },
+    {
+      "time": 5,
+      "x": 0.1,
+      "health": 10,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "bowser",
+      "scale": 0.5,
+      "type": "bowsers"
+    },
+    {
+      "time": 6,
+      "x": 0.1,
+      "health": 10,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "bowser",
+      "scale": 0.5,
+      "type": "bowsers"
+    },
+    {
+      "time": 7,
+      "x": 0.1,
+      "health": 10,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "bowser",
+      "scale": 0.5,
+      "type": "bowsers"
+    },
+    {
+      "time":8,
+      "x": 0.4,
+      "health": 12,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "flirtyGirl",
+      "scale": 1.5,
+      "type": "flirtyGirls"
+    },
+    {
+      "time": 9,
+      "x": 0.6,
+      "health": 12,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "flirtyGirl",
+      "scale": 1.5,
+      "type": "flirtyGirls"
+    },
+    {
+      "time": 10,
+      "x": 0.8,
+      "health": 12,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "flirtyGirl",
+      "scale": 1.5,
+      "type": "flirtyGirls"
+    },
+    {
+      "time": 15,
+      "x": 0.2,
+      "health": 50,
+      "speedX": 20, 
+      "speedY": 50,
+      "key": "redDevil",
+      "scale": 1,
+      "type": "redDevils"
+    },
+    {
+      "time": 16,
+      "x": 0.75,
+      "health": 50,
+      "speedX": 20, 
+      "speedY": 50,
+      "key": "redDevil",
+      "scale": 1,
+      "type": "redDevils"
+    }
+    
+  ]
+}

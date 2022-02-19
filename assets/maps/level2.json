@@ -1,0 +1,91 @@
+{
+  "duration": 15,
+  "groups": [
+    "coolInvaders",
+    "rainbowInvaders"
+  ],
+  "enemies": 
+  [
+    {
+      "time": 1,
+      "x": 0.9,
+      "health": 10,
+      "speedX": -20, 
+      "speedY": 50,
+      "key": "coolInvader",
+      "scale": 1.5,
+      "type": "coolInvaders"
+    },
+    {
+      "time": 2,
+      "x": 0.1,
+      "health": 8,
+      "speedX": 40, 
+      "speedY": 100,
+      "key": "rainbowInvader",
+      "scale": 1.5,
+      "type": "rainbowInvaders"
+    },
+    {
+      "time": 5,
+      "x": 0.1,
+      "health": 6,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "coolInvader",
+      "scale": 0.5,
+      "type": "coolInvaders"
+    },
+    {
+      "time": 6,
+      "x": 0.1,
+      "health": 6,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "coolInvader",
+      "scale": 0.5,
+      "type": "coolInvaders"
+    },
+    {
+      "time": 7,
+      "x": 0.1,
+      "health": 6,
+      "speedX": 50, 
+      "speedY": 50,
+      "key": "coolInvader",
+      "scale": 0.5,
+      "type": "coolInvaders"
+    },
+    {
+      "time":8,
+      "x": 0.4,
+      "health": 4,
+      "speedX": 100, 
+      "speedY": 100,
+      "key": "rainbowInvader",
+      "scale": 0.5,
+      "type": "rainbowInvaders"
+    },
+    {
+      "time": 9,
+      "x": 0.6,
+      "health": 4,
+      "speedX": 100, 
+      "speedY": 100,
+      "key": "rainbowInvader",
+      "scale": 0.5,
+      "type": "rainbowInvaders"
+    },
+    {
+      "time": 10,
+      "x": 0.8,
+      "health": 4,
+      "speedX": 100, 
+      "speedY": 100,
+      "key": "rainbowInvader",
+      "scale": 0.5,
+      "type": "rainbowInvaders"
+    }
+    
+  ]
+}
