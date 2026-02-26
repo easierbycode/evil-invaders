@@ -2027,6 +2027,7 @@ var GameState = exports.GameState = function (_Phaser$State) {
     }, {
         key: 'create',
         value: function create() {
+            var _this5 = this;
 
             this.game.juicy = this.game.plugins.add(new Phaser.Plugin.Juicy(this));
 
@@ -2047,13 +2048,65 @@ var GameState = exports.GameState = function (_Phaser$State) {
                 particle.tint = Phaser.ArrayUtils.getRandomItem([0x72747D, 0x3C3E45, 0xe5e7f0, 0xafb1b8, 0x630dd0]);
             });
 
-            this.loadLevel();
-
+            // Spawn player at normal position
             this.game.player = new _peach.Peach(this.game, this.game.world.centerX, this.game.height - 100);
 
             this.game.player.weapon.trackSprite(this.game.player, 11, (this.game.player.body.halfWidth + 2) * -1);
 
+            this.levelStarted = false;
+
+            // If already fullscreen, start level immediately
+            if (this.game.scale.isFullScreen) {
+                this._startLevel();
+            } else {
+                // Not fullscreen - show start prompt and wait for input
+                this.startText = this.game.add.text(
+                    this.game.world.centerX,
+                    this.game.world.centerY,
+                    'TAP TO START',
+                    { font: '24px Arial', fill: '#ffffff', align: 'center' }
+                );
+                this.startText.anchor.setTo(0.5);
+
+                // Blink the text
+                this.game.add.tween(this.startText).to(
+                    { alpha: 0 }, 500, Phaser.Easing.Linear.None, true, 0, -1, true
+                );
+
+                // Listen for spacebar
+                var spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+                spaceKey.onDown.addOnce(function () {
+                    _this5._startLevel();
+                });
+
+                // Listen for tap/click
+                this.game.input.onTap.addOnce(function () {
+                    _this5._startLevel();
+                });
+            }
+
             this.game.trigger(_stateEvents2.default.EXAMPLE_COMPLETED);
+        }
+    }, {
+        key: '_startLevel',
+        value: function _startLevel() {
+            if (this.levelStarted) return;
+            this.levelStarted = true;
+
+            // Remove start text if present
+            if (this.startText) {
+                this.startText.destroy();
+                this.startText = null;
+            }
+
+            // Request fullscreen or Android immersive mode
+            if (!this.game.scale.isFullScreen) {
+                this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+                this.game.scale.startFullScreen(false, false);
+            }
+
+            // Start the level (begin enemy spawning)
+            this.loadLevel();
         }
     }, {
         key: 'update',
@@ -2063,6 +2116,10 @@ var GameState = exports.GameState = function (_Phaser$State) {
             if (this.game.player.alive && this.game.input.activePointer.isDown) {
                 this.game.player.weapon.fire();
             }
+
+            // Don't process enemy collisions until level has started
+            if (!this.levelStarted || !this.levelData) return;
+
             var self = this;
 
             this.levelData.groups.forEach(function (group) {
