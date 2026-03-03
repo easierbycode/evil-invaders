@@ -2951,7 +2951,9 @@ function (module, exports, __webpack_require__) {
 
         this.game.physics.arcade.overlap(this.bowsers.weapon.bullets, this.game.player, function (player, bullet) {
           // shake the screen
-          navigator.vibrate(150);
+          if (navigator && typeof navigator.vibrate === "function") {
+            navigator.vibrate(150);
+          }
           bullet.kill();
 
           _this2.game.juicy.shake();
@@ -3194,7 +3196,9 @@ function (module, exports, __webpack_require__) {
 
           _this2.game.physics.arcade.overlap(bullets, _this2.game.player, function (player, bullet) {
             // shake the screen
-            navigator.vibrate(150);
+            if (navigator && typeof navigator.vibrate === "function") {
+              navigator.vibrate(150);
+            }
             bullet.kill();
 
             _this2.game.juicy.shake();
